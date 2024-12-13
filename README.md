@@ -34,8 +34,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://github.com/Robrizo/mortgage-repayment-calculator)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [View solution](https://github.com/Robrizo/mortgage-repayment-calculator)
+- Live Site URL: [Live demo](https://your-live-site-url.com)
 
 ## My process
 
