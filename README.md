@@ -35,7 +35,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [View solution](https://github.com/Robrizo/mortgage-repayment-calculator)
-- Live Site URL: [Live demo](https://your-live-site-url.com)
+- Live Site URL: [Live demo](https://mortgage-repayment-calculator-brown.vercel.app/)
 
 ## My process
 
@@ -79,5 +79,5 @@ Use this section to outline areas that you want to continue focusing on in futur
 ## Author
 
 - Website - [Robert Chunga](https://robert-chunga.vercel.app/)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/robrizo)
+- Frontend Mentor - [@robrizo](https://www.frontendmentor.io/profile/robrizo)
 
