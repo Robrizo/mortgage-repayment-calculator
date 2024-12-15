@@ -1,6 +1,6 @@
 <template>
-  <div class="relative bg-slate-300 h-screen p-6 lg:p-36 flex justify-center items-center">
-    <div class="relative bg-gray-100 h-fit w-[800px] grid grid-cols-1 md:grid-cols-2 md:rounded-2xl mb-6">
+  <div class="md:bg-slate-300 min-h-screen p-6 lg:p-36 flex justify-center items-center">
+    <div class="relative md:bg-gray-100 h-fit w-[800px] grid grid-cols-1 md:grid-cols-2 md:rounded-2xl mb-6">
       <!-- left side -->
       <div>
         <!-- header -->
