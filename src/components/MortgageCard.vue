@@ -200,7 +200,7 @@ const formartNumber = (number) => {
   return number.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '1,')
 }
 
-// Utility function to format numbers with commas
+// format numbers with commas
 const formatNumber = (value) =>
   value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
 
