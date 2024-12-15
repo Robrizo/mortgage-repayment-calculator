@@ -25,15 +25,18 @@
               </div>
               <div class="relative mt-2">
                 <input type="text" v-model="formattedMortgageAmount" @input="updateMortgageAmount"
-                  @focus="errors.mortgageAmount = ''" :class="{ 'border-redColor': errors.mortgageAmount }"
+                  @focus="clientSideErrors.mortgageAmount = ''"
+                  :style="{ borderColor: clientSideErrors.mortgageAmount ? '#d73328' : '' }"
                   class="peer w-full px-14 py-2 outline-none border border-slate-300 rounded-md focus:ring-1 focus:ring-primary appearance-none">
-                <span :class="{ 'bg-redColor text-white': errors.mortgageAmount }"
+                <span :class="{ 'text-white': clientSideErrors.mortgageAmount }"
+                  :style="{ backgroundColor: clientSideErrors.mortgageAmount ? '#d73328' : '' }"
                   class="bg-slate-300 text-slate-500 font-bold absolute inset-y-0 left-0 px-4 flex items-center rounded-l-md peer-focus:bg-primary peer-focus:text-slate-900">
                   £
                 </span>
               </div>
               <div>
-                <p v-if="errors.mortgageAmount" class="text-sm text-redColor mt-2">{{ errors.mortgageAmount }}</p>
+                <p v-if="clientSideErrors.mortgageAmount" class="text-sm text-redColor mt-2">{{
+                  clientSideErrors.mortgageAmount }}</p>
               </div>
             </div>
             <!-- end of mortgage amount -->
@@ -44,31 +47,36 @@
                   <label for="" class="text-sm text-slate-500 font-medium">Mortgage Term</label>
                 </div>
                 <div class="relative mt-2">
-                  <input type="number" v-model="loanTerm" @focus="errors.loanTerm = ''"
+                  <input type="number" v-model="loanTerm" @focus="clientSideErrors.loanTerm = ''" :style="{ borderColor: clientSideErrors.loanTerm ? '#d73328' : '' }"
                     class="peer w-full px-4 py-2 outline-none border border-slate-300 rounded-md focus:ring-1 focus:ring-primary appearance-none">
-                  <span :class="{ 'bg-[#d73328] text-white': errors.loanTerm }"
+                  <span :class="{ 'text-white': clientSideErrors.loanTerm }"
+                    :style="{ backgroundColor: clientSideErrors.loanTerm ? '#d73328' : '' }"
                     class="bg-slate-300 text-sm text-slate-500 font-bold absolute inset-y-0 right-0 px-4 flex items-center rounded-r-md peer-focus:bg-primary peer-focus:text-slate-900">
                     Years
                   </span>
                 </div>
                 <div>
-                  <p v-if="errors.loanTerm" class="text-sm text-redColor mt-2">{{ errors.loanTerm }}</p>
+                  <p v-if="clientSideErrors.loanTerm" class="text-sm text-redColor mt-2">{{ clientSideErrors.loanTerm }}
+                  </p>
                 </div>
               </div>
               <div class="md:mt-4 mt-0">
                 <div>
-                  <label for="" class="text-sm text-slate-500 font-medium">Interest Rate</label>
+                  <label for="interest-rate" class="text-sm text-slate-500 font-medium">Interest Rate</label>
                 </div>
                 <div class="relative mt-2">
-                  <input type="text" v-model="interestRate" @focus="errors.interestRate = ''"
+                  <input type="number" step="0.01" name="interest-rate" v-model="interestRate"
+                    @focus="clientSideErrors.interestRate = ''" :style="{ borderColor: clientSideErrors.interestRate ? '#d73328' : '' }"
                     class="peer w-full px-4 py-2 outline-none border border-slate-300 rounded-md focus:ring-1 focus:ring-primary appearance-none">
-                  <span :class="{ 'bg-[#d73328] text-white': errors.interestRate }"
+                  <span :class="{ 'text-white': clientSideErrors.interestRate }"
+                    :style="{ background: clientSideErrors.interestRate ? '#d73328' : '' }"
                     class="bg-slate-300 text-slate-500 font-bold absolute inset-y-0 right-0 px-4 flex items-center rounded-r-md peer-focus:bg-primary peer-focus:text-slate-900">
                     %
                   </span>
                 </div>
                 <div>
-                  <p v-if="errors.interestRate" class="text-sm text-redColor mt-2">{{ errors.interestRate }}</p>
+                  <p v-if="clientSideErrors.interestRate" class="text-sm text-redColor mt-2">{{
+                    clientSideErrors.interestRate }}</p>
                 </div>
               </div>
             </div>
@@ -83,7 +91,7 @@
                   <div
                     class="flex items-center ps-4 border-2 border-slate-300 hover:border-primary has-[:checked]:border-primary has-[:checked]:bg-primary has-[:checked]:bg-opacity-10 rounded-md cursor-pointer">
                     <input id="bordered-radio-1" type="radio" value="Repayment" name="mortgage-type"
-                      v-model="mortgageType" @focus="errors.mortgageType = ''"
+                      v-model="mortgageType" @focus="clientSideErrors.mortgageType = ''"
                       class="w-4 h-4 accent-primary cursor-pointer">
                     <label for="bordered-radio-1"
                       class="w-full py-2 ms-2 font-bold text-slate-900 cursor-pointer">Repayment</label>
@@ -91,7 +99,7 @@
                   <div
                     class="flex items-center ps-4 border-2 border-slate-300 hover:border-primary has-[:checked]:border-primary has-[:checked]:bg-primary has-[:checked]:bg-opacity-10 rounded-md cursor-pointer">
                     <input id="bordered-radio-2" type="radio" value="Interest Only" name="mortgage-type"
-                      v-model="mortgageType" @focus="errors.mortgageType = ''"
+                      v-model="mortgageType" @focus="clientSideErrors.mortgageType = ''"
                       class="w-4 h-4 accent-primary cursor-pointer">
                     <label for="bordered-radio-2"
                       class="w-full py-2 ms-2 font-bold text-slate-900 dark:text-gray-300 cursor-pointer">Interest
@@ -99,7 +107,8 @@
                   </div>
                 </div>
                 <div>
-                  <p v-if="errors.mortgageType" class="text-sm text-redColor mt-2">{{ errors.mortgageType }}</p>
+                  <p v-if="clientSideErrors.mortgageType" class="text-sm text-redColor mt-2">{{
+                    clientSideErrors.mortgageType }}</p>
                 </div>
               </div>
             </div>
@@ -119,7 +128,7 @@
       <!-- end of left side -->
       <!-- right side -->
       <!-- empty results start -->
-      <div v-if="showResults"
+      <div v-if="hideResults"
         class="p-6 bg-slate-700 md:rounded-bl-[60px] md:rounded-r-2xl flex flex-col items-center justify-center">
         <div>
           <img :src="icon" alt="icon" class="w-40">
@@ -169,13 +178,18 @@ import calc_icon from '@/assets/images/icon-calculator.svg'
 const mortgageAmount = ref('')
 const interestRate = ref('')
 const loanTerm = ref('')
-const monthlyRepayment = ref(0)
-const totalPayment = ref(0)
 const mortgageType = ref('')
+const monthlyRepayment = ref('')
+const totalPayment = ref('')
 
-const showResults = ref(true)
+const hideResults = ref(true)
 
-const errors = ref({})
+const clientSideErrors = ref({
+  mortgageAmount: '',
+  interestRate: '',
+  loanTerm: '',
+  mortgageType: ''
+})
 
 // Formats a number with commas as thousands separators.
 const formartNumber = (number) => {
@@ -208,51 +222,53 @@ const clearAll = () => {
   mortgageAmount.value = ''
   interestRate.value = ''
   loanTerm.value = ''
-  monthlyRepayment.value = 0
-  totalPayment.value = 0
+  monthlyRepayment.value = ''
+  totalPayment.value = ''
   mortgageType.value = ''
-  showResults.value = true
+  hideResults.value = true
 }
 
 // Calculates monthly repayment and total payment
 const calculateMortgage = () => {
-  errors.value = {}
+  clientSideErrors.value = {}
 
   if (!mortgageAmount.value || isNaN(mortgageAmount.value) || mortgageAmount.value <= 0) {
-    errors.value.mortgageAmount = 'This field is required'
+    clientSideErrors.value.mortgageAmount = 'This field is required'
   }
 
   if (!interestRate.value || isNaN(interestRate.value) || interestRate.value <= 0) {
-    errors.value.interestRate = 'This field is required'
+    clientSideErrors.value.interestRate = 'This field is required'
   }
 
   if (!loanTerm.value || isNaN(loanTerm.value) || loanTerm.value <= 0) {
-    errors.value.loanTerm = 'This field is required'
+    clientSideErrors.value.loanTerm = 'This field is required'
   }
 
-  if (!mortgageType.value) {
-    errors.value.mortgageType = 'This field is required'
+  if (!mortgageType.value || mortgageType.value === '') {
+    clientSideErrors.value.mortgageType = 'This field is required'
   }
 
-  if (Object.keys(errors.value).length === 0) {
-    const p = parseFloat(mortgageAmount.value)
-    const annualRate = parseFloat(interestRate.value) / 100
-    const r = annualRate / 12
-    const n = parseInt(loanTerm.value) * 12
-
-    // Calculate monthly repayment
-    if (r === 0) {
-      monthlyRepayment.value = (p / n).toFixed(2)
-    } else {
-      monthlyRepayment.value = ((p * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1)).toFixed(2)
-    }
-
-    // Calculate total interest
-    totalPayment.value = (parseFloat(monthlyRepayment.value) * n).toFixed(2)
-
-    // Display results
-    showResults.value = false
+  if (Object.keys(clientSideErrors.value).length > 0) {
+    return
   }
+
+  const principal = parseFloat(mortgageAmount.value)
+  const annualRate = parseFloat(interestRate.value) / 100
+  const monthlyRate = annualRate / 12
+  const totalMonths = parseInt(loanTerm.value) * 12
+
+  // Calculate monthly repayment
+  if (monthlyRate === 0) {
+    monthlyRepayment.value = (principal / totalMonths).toFixed(2)
+  } else {
+    monthlyRepayment.value = ((principal * monthlyRate * Math.pow(1 + monthlyRate, totalMonths)) / (Math.pow(1 + monthlyRate, totalMonths) - 1)).toFixed(2)
+  }
+
+  // Calculate total interest
+  totalPayment.value = (parseFloat(monthlyRepayment.value) * totalMonths).toFixed(2)
+
+  // Display results
+  hideResults.value = false
 }
 </script>
 
