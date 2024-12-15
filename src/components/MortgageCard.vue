@@ -225,6 +225,7 @@ const clearAll = () => {
   monthlyRepayment.value = ''
   totalPayment.value = ''
   mortgageType.value = ''
+  clientSideErrors.value = {}
   hideResults.value = true
 }
 
