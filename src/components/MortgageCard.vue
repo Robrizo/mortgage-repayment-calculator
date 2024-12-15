@@ -27,7 +27,7 @@
                 <input type="text" v-model="formattedMortgageAmount" @input="updateMortgageAmount"
                   @focus="clientSideErrors.mortgageAmount = ''"
                   :style="{ borderColor: clientSideErrors.mortgageAmount ? '#d73328' : '' }"
-                  class="peer w-full px-14 py-2 outline-none border border-slate-300 rounded-md focus:ring-1 focus:ring-primary appearance-none">
+                  class="peer font-semibold w-full px-14 py-2 outline-none border border-slate-300 rounded-md focus:ring-1 focus:ring-primary appearance-none">
                 <span :class="{ 'text-white': clientSideErrors.mortgageAmount }"
                   :style="{ backgroundColor: clientSideErrors.mortgageAmount ? '#d73328' : '' }"
                   class="bg-slate-300 text-slate-500 font-bold absolute inset-y-0 left-0 px-4 flex items-center rounded-l-md peer-focus:bg-primary peer-focus:text-slate-900">
@@ -48,7 +48,7 @@
                 </div>
                 <div class="relative mt-2">
                   <input type="number" v-model="loanTerm" @focus="clientSideErrors.loanTerm = ''" :style="{ borderColor: clientSideErrors.loanTerm ? '#d73328' : '' }"
-                    class="peer w-full px-4 py-2 outline-none border border-slate-300 rounded-md focus:ring-1 focus:ring-primary appearance-none">
+                    class="peer font-semibold w-full px-4 py-2 outline-none border border-slate-300 rounded-md focus:ring-1 focus:ring-primary appearance-none">
                   <span :class="{ 'text-white': clientSideErrors.loanTerm }"
                     :style="{ backgroundColor: clientSideErrors.loanTerm ? '#d73328' : '' }"
                     class="bg-slate-300 text-sm text-slate-500 font-bold absolute inset-y-0 right-0 px-4 flex items-center rounded-r-md peer-focus:bg-primary peer-focus:text-slate-900">
@@ -67,7 +67,7 @@
                 <div class="relative mt-2">
                   <input type="number" step="0.01" name="interest-rate" v-model="interestRate"
                     @focus="clientSideErrors.interestRate = ''" :style="{ borderColor: clientSideErrors.interestRate ? '#d73328' : '' }"
-                    class="peer w-full px-4 py-2 outline-none border border-slate-300 rounded-md focus:ring-1 focus:ring-primary appearance-none">
+                    class="peer font-semibold w-full px-4 py-2 outline-none border border-slate-300 rounded-md focus:ring-1 focus:ring-primary appearance-none">
                   <span :class="{ 'text-white': clientSideErrors.interestRate }"
                     :style="{ background: clientSideErrors.interestRate ? '#d73328' : '' }"
                     class="bg-slate-300 text-slate-500 font-bold absolute inset-y-0 right-0 px-4 flex items-center rounded-r-md peer-focus:bg-primary peer-focus:text-slate-900">
